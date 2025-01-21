@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Accueil{% endblock %} -Site e-commerce Symfony 6</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️
         </text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,32 +10,17 @@
       <!-- Feuilles de styles -->
         <link rel ="stylesheet" href=" {{ asset('assetss/css/bootstrap.min.css') }}">
         {% block stylesheets %}{% endblock %}
-       <link rel="stylesheet" href="{{ asset('assetss/css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('assetss/css/styles.css') }}">
     
-      <!-- fichiers JS -->
-      <script src="{{ asset('assetss/js/bootstrap.bundle.min.js') }}" defer></script>
+        <!-- fichiers JS -->
+        <script src="{{ asset('assetss/js/bootstrap.bundle.min.js') }}" defer></script>
         {% block javascripts %} {% endblock %}
          <script src="{{ asset('assetss/js/scripts.js')}}" defer></script>
     </head>
     <body>
-    
+        {% include "_partials/_nav.html.twig"  %}    
         {% block body %}{% endblock %}
-<footer class="container-fluid bg-light">
-<div class="row">
-<section class="col">
-Colonne 1
-</section>
-<section class="col">
-colonne 2
-
-</section>
-<section class="col">
-Colonne 3
-</section>
-
-
-</div>
-</footer>
+        {% include "_partials/_footer.html.twig"  %}     
 
     </body>
 </html>

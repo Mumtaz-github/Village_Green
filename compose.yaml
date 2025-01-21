@@ -1,6 +1,6 @@
 services:
   db:
-    image: mariadb :10.6
+    image: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: Afpa1234
     volumes:
