@@ -25,9 +25,8 @@ class SecurityController extends AbstractController
             'last_username' => $lastUsername, 
             'error' => $error]);
     }
-/*
-    #[Route(path: '/logout', name: 'app_logout')]
-    */
+
+    #[Route(path: '/deconnexion', name: 'app_logout')] //ajouté deconnexion
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');

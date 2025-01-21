@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">e-commerce</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,7 +27,25 @@
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      
+       <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> {#me-auto margin  il permet à gouche, ms-auto il permet coté droit #}
+       {% if app.user%} {#si je connect ajouté condition#}
+       <li class="nav-item">
+          <a class="nav-link" href="#">Mon compte</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_logout')}}">Me déconnecter</a>
+        </li>
+
+     
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_register')}}">M'inscrire</a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_login')}}">Me Connecter</a>
+        </li>
+  {% endif %}
+       </ul>
     </div>
   </div>
 </nav>
