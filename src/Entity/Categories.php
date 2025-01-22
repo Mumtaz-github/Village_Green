@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\SlugTrait;
 use App\Repository\CategoriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: CategoriesRepository::class)]
 class Categories
 {
+    use SlugTrait; //ajouté cette ligne
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -18,7 +20,9 @@ class Categories
     #[ORM\Column(length: 100)]  /*column name* */
     private ?string $name = null;
 
-    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]  /*1st propriétés qui sera rilié meme* */
+    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]  /*1st propriétés qui sera rilié meme*/
+
+    #[ORM\JoinColumn(onDelete: 'CASCADE')] //cette ligne agouté pour avoid problem the forgen key constrain in database phpmyadmin table categorie deletion
     private ?self $parent = null;
 
     /**

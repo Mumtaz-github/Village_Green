@@ -52,6 +52,7 @@ class Coupons
     public function __construct()
     {
         $this->orders = new ArrayCollection();
+        $this->created_at = new \DateTimeImmutable(); //cette ligné ajouté ici pour la date
     }
 
     public function getId(): ?int
